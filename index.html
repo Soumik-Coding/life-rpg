@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumik RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="levelUpPopup" class="levelup-popup">
+    <h2>⚔️ LEVEL UP!</h2>
+    <p id="levelUpText">You reached Level 2</p>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button id="closeSidebar" class="close-btn">✖</button>
+    <img src="profile.jpg" class="profile-img">
+    <h3>Soumik</h3>
+    <ul>
+        <li data-page="dashboard">🏠 Dashboard</li>
+        <li data-page="notifications">🔔 Notifications</li>
+        <li data-page="projects">📁 Projects</li>
+        <li data-page="training">⚔️ Training</li>
+        <li data-page="achievements">🏆 Achievements</li>
+        <li data-page="settings">⚙️ Settings</li>
+        <li data-page="logout">🚪 Logout</li>
+    </ul>
+</div>
+
+<!-- Dark Overlay -->
+<div id="overlay"></div>
+
+<!-- Menu Button -->
+<button id="menuBtn" class="menu-btn">☰</button>
+
+<!-- Dashboard Page -->
+<div class="page" id="page-dashboard">
+    <h1 class="title">🔥 Soumik Life RPG 🔥</h1>
+
+    <div class="xp-section">
+        <p>Level: <span id="level">1</span></p>
+        <div class="xp-bar"><div id="xp-fill"></div></div>
+        <p>XP: <span id="xp">0</span> / 100</p>
+    </div>
+
+    <div class="task-buttons">
+        <button class="task" data-xp="5">🧘 Morning Walk +5 XP</button>
+        <button class="task" data-xp="15">📚 Calisthenics +15 XP</button>
+        <button class="task" data-xp="20">🥋 Taekwondo +20 XP</button>
+        <button class="task" data-xp="25">💪 Coding +25 XP</button>
+        <button class="task" data-xp="10">🏃 Excel +10 XP</button>
+        <button class="task" data-xp="5">🏃 Running +5 XP</button>
+        <button class="task" data-xp="10">🚴 Cycling +10 XP</button>
+        <button class="task" data-xp="10">🚶 15K Steps +10 XP</button>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+</div>
+
+<!-- Achievements Page -->
+<div class="page" id="page-achievements" style="display:none">
+    <h1 class="title">🏆 Achievements</h1>
+    <div id="achievements-grid" class="achievements-grid"></div>
+</div>
+
+<!-- Notifications Page -->
+<div class="page" id="page-notifications" style="display:none">
+    <h1 class="title">🔔 Notifications</h1>
+    <p>No new notifications yet.</p>
+</div>
+
+<!-- Projects Page -->
+<div class="page" id="page-projects" style="display:none">
+    <h1 class="title">📁 Projects</h1>
+    <p>Your projects will show here.</p>
+</div>
+
+<!-- Training Page -->
+<div class="page" id="page-training" style="display:none">
+    <h1 class="title">⚔️ Training</h1>
+    <p>Your training log will show here.</p>
+</div>
+
+<!-- Settings Page -->
+<div class="page" id="page-settings" style="display:none">
+    <h1 class="title">⚙️ Settings</h1>
+    <p>Settings coming soon.</p>
+</div>
+
+<audio id="xpSound" src="xp.mp3"></audio>
+<audio id="levelSound" src="levelup.mp3"></audio>
+<script src="script.js"></script>
+</body>
+</html>

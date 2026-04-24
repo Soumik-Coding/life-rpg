@@ -1,0 +1,263 @@
+:root {
+    --bg: #111111;
+    --text: #ffffff;
+}
+
+[data-theme="light"] {
+    --bg: #ffffff;
+    --text: #111111;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Consolas, sans-serif;
+    text-align: center;
+}
+
+.title {
+    margin-top: 40px;
+    font-size: 34px;
+    color: #FFD300;
+    text-shadow: 0px 0px 12px yellow;
+}
+
+.xp-section {
+    margin-top: 20px;
+}
+
+.xp-bar {
+    width: 60%;
+    height: 25px;
+    background: #333;
+    margin: auto;
+    border-radius: 20px;
+}
+
+#xp-fill {
+    height: 100%;
+    background: lime;
+    width: 0%;
+    border-radius: 20px;
+    transition: .4s;
+}
+
+button {
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.task {
+    width: 70%;
+    background: black;
+    color: white;
+    border: 2px solid lime;
+    transition: .2s;
+}
+
+.task:hover {
+    background: lime;
+    color: black;
+}
+
+.task.done {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #555;
+}
+
+.sidebar {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background: #000;
+    padding: 20px;
+    transition: .3s;
+    z-index: 1000;
+    box-shadow: 0px 0px 12px yellow;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.close-btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: .2s;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: white;
+}
+
+.menu-btn {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: #FFD300;
+    cursor: pointer;
+    z-index: 1100;
+    animation: flash 2s infinite;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 900;
+}
+
+@keyframes flash {
+    0%   { transform: scale(1); color: yellow; }
+    50%  { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.sidebar ul li {
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+    list-style: none;
+}
+
+.sidebar ul li:hover {
+    background: #222;
+}
+
+.sidebar ul li.active {
+    background: #FFD300;
+    color: black;
+    font-weight: bold;
+}
+
+.levelup-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #111;
+    border: 3px solid #FFD300;
+    border-radius: 16px;
+    padding: 40px 60px;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: none;
+}
+
+.levelup-popup h2 {
+    font-size: 42px;
+    color: #FFD300;
+    text-shadow: 0 0 20px yellow;
+    margin-bottom: 10px;
+}
+
+.levelup-popup p {
+    font-size: 20px;
+    color: white;
+}
+
+@keyframes popupAnim {
+    0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    20%  { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    30%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    70%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+}
+
+.levelup-popup.show {
+    animation: popupAnim 2s ease forwards;
+}
+
+.achievements-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+}
+
+.achievement-card {
+    width: 160px;
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+    transition: .3s;
+}
+
+.achievement-card.unlocked {
+    border-color: #FFD300;
+    box-shadow: 0 0 12px rgba(255, 211, 0, 0.3);
+}
+
+.achievement-card.locked {
+    opacity: 0.35;
+    filter: grayscale(1);
+}
+
+.achievement-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.achievement-name {
+    font-size: 13px;
+    color: #FFD300;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.achievement-desc {
+    font-size: 11px;
+    color: #888;
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background: #111;
+    border: 2px solid #FFD300;
+    border-radius: 10px;
+    padding: 12px 18px;
+    color: white;
+    font-size: 14px;
+    animation: toastAnim 3s ease forwards;
+}
+
+@keyframes toastAnim {
+    0%   { opacity: 0; transform: translateX(60px); }
+    15%  { opacity: 1; transform: translateX(0); }
+    75%  { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(60px); }
+}
