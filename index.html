@@ -19,11 +19,14 @@
     <img src="profile.jpg" class="profile-img">
     <h3>Soumik</h3>
     <ul>
+        <li data-page="profile">👤 Profile</li>
         <li data-page="dashboard">🏠 Dashboard</li>
         <li data-page="notifications">🔔 Notifications</li>
         <li data-page="projects">📁 Projects</li>
         <li data-page="training">⚔️ Training</li>
         <li data-page="achievements">🏆 Achievements</li>
+        <li data-page="boss">👹 Boss Battle</li>
+        <li data-page="stats">📊 Stats</li>
         <li data-page="settings">⚙️ Settings</li>
         <li data-page="logout">🚪 Logout</li>
     </ul>
@@ -89,8 +92,53 @@
     <p>Settings coming soon.</p>
 </div>
 
+<!-- Boss Battle Page -->
+<div class="page" id="page-boss" style="display:none">
+    <h1 class="title">👹 Boss Battle</h1>
+    <div id="boss-container" class="boss-container">
+        <div id="boss-card" class="boss-card">
+            <div id="boss-emoji" class="boss-emoji">👹</div>
+            <div id="boss-name" class="boss-name">No Active Boss</div>
+            <div id="boss-desc" class="boss-desc">Select a boss below to begin</div>
+            <div class="boss-hp-label">
+                <span>HP</span>
+                <span id="boss-hp-text">— / —</span>
+            </div>
+            <div class="boss-hp-track">
+                <div id="boss-hp-bar" class="boss-hp-bar"></div>
+            </div>
+            <div id="boss-reward" class="boss-reward">🏆 Reward: — XP</div>
+        </div>
+        <div id="boss-status" class="boss-status"></div>
+        <h3 class="boss-select-title">— Choose Your Boss —</h3>
+        <div id="boss-list" class="boss-list"></div>
+    </div>
+</div>
+<!-- Stats Page -->
+<div class="page" id="page-stats" style="display:none">
+    <h1 class="title">📊 Your Grind</h1>
+
+    <div class="stats-tabs">
+        <button class="stats-tab active-tab" onclick="switchTab('week')">7 Days</button>
+        <button class="stats-tab" onclick="switchTab('month')">30 Days</button>
+        <button class="stats-tab" onclick="switchTab('year')">12 Months</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="xpChart"></canvas>
+    </div>
+
+    <div class="stats-summary" id="stats-summary"></div>
+</div>
+<!-- Profile Page -->
+<div class="page" id="page-profile" style="display:none">
+    <h1 class="title">👤 Hero Profile</h1>
+    <div id="profile-container" class="profile-container"></div>
+</div>
+
 <audio id="xpSound" src="xp.mp3"></audio>
 <audio id="levelSound" src="levelup.mp3"></audio>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
